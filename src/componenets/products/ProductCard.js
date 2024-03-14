@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card,Button } from 'react-bootstrap'
-import img1 from "../../imges/Album 1.png"
+
 
 const ProductCard = (props) => {
   return (

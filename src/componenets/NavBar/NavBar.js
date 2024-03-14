@@ -1,27 +1,40 @@
-import React from 'react'
-import { Button, Container, Navbar, Nav, NavDropdown, Row, Col } from 'react-bootstrap'
+import React, { useContext} from 'react'
+import { Button, Container, Navbar, Nav, Row, Col } from 'react-bootstrap'
+import DataContext from '../context/DataContext'
 
-const NavBarCompo = () => {
+const NavBarCompo = (props) => {
+  const ctx = useContext(DataContext);
+  const pageVisibilityUpdate = (data) => {
+    ctx.pageVisibilityHandler(data);
+  }
   return (
     <>
     <Navbar expand="lg" bg="dark" variant="dark">
-
         <Container >
         <Container  fluid>
-          <Row>
-            <Col xs={2} ><Navbar.Brand href="/">
+          <Row style={{textAlign:"center"}} >
+            <Col xs={12} sm ={2}  ><Navbar.Brand href="/">
               BootstrapApp</Navbar.Brand></Col>
-
-            <Col xs={{offset:'3'}} > <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="/">Products</Nav.Link>
-            <Nav.Link href="#contactus">ContactUS</Nav.Link>
-            <Nav.Link href="#aboutus">AboutUs</Nav.Link>
+            <Col xs={12} sm={8}> <Nav className="me-auto">
+            <Nav.Link href="#" onClick={( ) => {
+              props.onClickTab("home")
+              pageVisibilityUpdate("HOME");
+            }}>Home</Nav.Link>
+            <Nav.Link href="#" onClick={( ) => {
+              props.onClickTab("products")
+              pageVisibilityUpdate("PRODUCTS")
+            }}>Products</Nav.Link>
+            <Nav.Link href="#" onClick={( ) => {
+              props.onClickTab("contactus")
+            }}>ContactUS</Nav.Link>
+            <Nav.Link href="#" onClick={( ) => {
+              props.onClickTab("aboutus")
+            }}>AboutUs</Nav.Link>
             </Nav></Col>
-
-            <Col xs={{offset:"2"} }> 
-            <Button variant="warning" >Register / Login</Button>
-           
+            <Col xs={12} sm={2}> 
+            <Button variant="warning" onClick={( ) => {
+              props.onClickTab("cart")
+            }}>$Cart: 3</Button>
             </Col>
           </Row>
           </Container>

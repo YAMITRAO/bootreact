@@ -7,11 +7,12 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap/dist/react-bootstrap';
 import "../node_modules/react-bootstrap/dist/react-bootstrap"
+import DataProvider from './componenets/context/DataProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
- 
-    <App />
+ <DataProvider> <App /></DataProvider>
+   
   
 );
 
