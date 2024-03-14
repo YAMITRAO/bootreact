@@ -5,8 +5,30 @@ import DataContext from '../context/DataContext'
 const CartData = () => {
 
   const ctx = useContext(DataContext);
-  console.log(ctx);
-  const cartDataArray = ctx.productsList;
+  const cartDataArray = ctx.cartItemsList;
+  let totalAmount = 0;
+  let renderVar = cartDataArray.map( (val) => {
+    totalAmount += val.price*val.quantity;
+    let data = {
+      title: val.title,
+      price: val.price,
+      type:"REMOVE_FROM_CART"
+    }
+    const itmeRemoveHandler = () =>{
+      ctx.cartListUpdate(data);
+    }
+    return (
+      <tr>
+      <td>{val.title}</td>
+      <td>{val.price}</td>
+      <td>{val.quantity}</td>
+      <td>
+        <Button variant='danger' onClick={ itmeRemoveHandler}>X</Button>
+      </td>
+      
+    </tr>
+    )
+  })
   return (
     
     <Table striped  hover>
@@ -20,19 +42,10 @@ const CartData = () => {
         </tr>
       </thead>
       <tbody>
-        {cartDataArray.map( (val) => {
-          return (
-            <tr>
-            <td>{val.title}</td>
-            <td>{val.price}</td>
-            <td>1</td>
-            <td>
-              <Button variant='danger' >X</Button>
-            </td>
-            
-          </tr>
-          )
-        })}
+        {renderVar}
+        <tr>
+        <td colSpan={4}>Total Amount :${totalAmount} </td>
+        </tr>
       </tbody>
     </Table>
   )

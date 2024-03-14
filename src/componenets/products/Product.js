@@ -6,7 +6,6 @@ import DataContext from '../context/DataContext'
 
 const Product = () => {
     const ctx = useContext(DataContext);
-    console.log(ctx.productsList);
     const productsArr = ctx.productsList;
   return (
 
@@ -17,7 +16,7 @@ const Product = () => {
 
         <Row className='mt-2'>
             {productsArr.map( (val) => {
-                return <Col className='mt-2'><ProductCard data={val}/></Col>
+                return <Col className='mt-2' key={val.title}><ProductCard data={val}/></Col>
                 
             })}
             

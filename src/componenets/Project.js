@@ -6,18 +6,21 @@ import AboutUs from "./Aboutus/AboutUs"
 import Cart from "./Cart/Cart"
 import DataContext from './context/DataContext'
 
-const Project = (props) => {
-  // const ctx = useContext(DataContext);
-  //  let isHomePageVisible = ctx.pageVisibility.isHomePageVisible;
-  //  let isProductVisible = ctx.pageVisibility.isProductVisible;
+const Project = () => {
+  const ctx = useContext(DataContext);
+   let isHomePageVisible = ctx.pageVisibility.isHomePageVisible;
+   let isProductVisible = ctx.pageVisibility.isProductVisible;
+   let isAboutUsVisible = ctx.pageVisibility.isAboutUsVisible;
+   let isContactUsVisible = ctx.pageVisibility.isContactUsVisible;
+   let isCartVisible = ctx.pageVisibility.isCartVisible;
    
   return (
   <>
-    {props.data.isHomePageVisible && <Home/>}
-    {props.data.isProductVisible && <Product/>}
-    {props.data.isAboutUsVisible && <AboutUs/>}
-    {props.data.isContactUsVisible && <ContactUs/>}
-    {props.data.isCartVisible && <Cart cartVisibility = {props.data.isCartVisible}/>}
+    {isHomePageVisible && <Home/>}
+    {isProductVisible && <Product/>}
+    {isAboutUsVisible && <AboutUs/>}
+    {isContactUsVisible && <ContactUs/>}
+    {isCartVisible && <Cart/>}
     </>
   )
 }
