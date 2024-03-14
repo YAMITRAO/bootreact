@@ -1,8 +1,11 @@
 import React from 'react'
+import ContactForm from './ContactForm'
 
 const ContactUs = () => {
   return (
-    <div>ContactUs</div>
+    <>
+    <ContactForm/>
+    </>
   )
 }
 

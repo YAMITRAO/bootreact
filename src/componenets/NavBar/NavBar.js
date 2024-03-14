@@ -17,18 +17,18 @@ const NavBarCompo = () => {
             <Col xs={12} sm ={2}  ><Navbar.Brand href="/">
               BootstrapApp</Navbar.Brand></Col>
             <Col xs={12} sm={8}> <Nav className="me-auto">
-            <Nav.Link href="#" onClick={( ) => {
+            <Nav.Link href="#home" onClick={( ) => {
               pageVisibilityUpdate("HOME");
             }}>Home</Nav.Link>
-            <Nav.Link href="#" onClick={( ) => {
+            <Nav.Link href="#products" onClick={( ) => {
               pageVisibilityUpdate("PRODUCTS")
             }}>Products</Nav.Link>
-            <Nav.Link href="#" onClick={( ) => {
+            <Nav.Link href="#contact_us" onClick={( ) => {
               pageVisibilityUpdate("CONTACTUS");
-            }}>ContactUS</Nav.Link>
-            <Nav.Link href="#" onClick={( ) => {
+            }}>Contact</Nav.Link>
+            <Nav.Link href="#about_us" onClick={( ) => {
               pageVisibilityUpdate("ABOUTUS")
-            }}>AboutUs</Nav.Link>
+            }}>About</Nav.Link>
             </Nav></Col>
             <Col xs={12} sm={2}> 
             <Button variant="warning" onClick={( ) => {
