@@ -5,6 +5,15 @@ import ContactUs from './Contactus/ContactUs'
 import AboutUs from "./Aboutus/AboutUs"
 import Cart from "./Cart/Cart"
 import DataContext from './context/DataContext'
+import NavBarCompo from './NavBar/NavBar'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+const route = createBrowserRouter( [
+  {path: "/" , element: <Home />},
+  {path: "/products" , element: <Product />},
+  {path: "/about" , element: <AboutUs />},
+  {path: "/contact" , element: <ContactUs />},
+])
 
 const Project = () => {
   const ctx = useContext(DataContext);
@@ -16,11 +25,13 @@ const Project = () => {
    
   return (
   <>
-    {isHomePageVisible && <Home/>}
+    <NavBarCompo />
+    {/* {isHomePageVisible && <Home/>}
     {isProductVisible && <Product/>}
     {isAboutUsVisible && <AboutUs/>}
     {isContactUsVisible && <ContactUs/>}
-    {isCartVisible && <Cart/>}
+    {isCartVisible && <Cart/>} */}
+    <RouterProvider router={route}/>
     </>
   )
 }
