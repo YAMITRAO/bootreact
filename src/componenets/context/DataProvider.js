@@ -7,37 +7,8 @@ import DataContext from './DataContext'
 const reducer = (state, action) => {
 
   //Page Visibility "START"
-  let pageData ={ isHomePageVisible: false,
-    isProductVisible: false,
-    isAboutUsVisible: false,
-    isContactUsVisible: false,
-    isCartVisible: false,
-    }
-  if(action.type === "HOME"){
-    let updatedData = {...pageData, isHomePageVisible:true}
-    state.pageVisibility = updatedData;
-    console.log(state);
-    return {...state}
-  }
-  else if(action.type ==="PRODUCTS"){
-    let updatedData = {...pageData, isProductVisible:true}
-    state.pageVisibility = updatedData;
-    console.log(state);
-    return {...state}
-  }
-  else if(action.type ==="CONTACTUS"){
-    let updatedData = {...pageData, isContactUsVisible:true}
-    state.pageVisibility = updatedData;
-    console.log(state);
-    return {...state}
-  }
-  else if(action.type === "ABOUTUS"){
-    let updatedData = {...pageData, isAboutUsVisible:true}
-    state.pageVisibility = updatedData;
-    console.log(state);
-    return {...state}
-  }
-  else if(action.type === "CART"){
+  
+  if(action.type === "CART"){
     let updatedData = {...state.pageVisibility, isCartVisible:!state.pageVisibility.isCartVisible}
     state.pageVisibility = updatedData;
     console.log(state);

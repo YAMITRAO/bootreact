@@ -20,7 +20,7 @@ const Cart = (props) => {
 
   return (
     <>
-    <div  style={{position:"fixed", top:"55px", right:"5%", maxHeight:"90vh", overflowY:"scroll"}} ref={ref}>
+    <div  style={{position:"fixed", top:"55px", right:"5%", maxHeight:"90vh", overflowY:"scroll", zIndex:"1000"}} ref={ref}>
       <Overlay
         show={true}
         target={""}
