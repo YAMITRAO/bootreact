@@ -1,31 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
 
 const HomeUI = () => {
+    
+  const [movieData, setMovieData] = useState([]);
+      
+  useEffect(()=>{
+    fetch("https://dummyapi.online/api/movies").then(
+      (response) => {
+        return response.json()
+      }
+    ).then( (data) => {
+      console.log(data);
+      setMovieData(data);
+      
+    })
+
+  }, []);
+
   return (
     <Table striped >
+     
+      <thead>
+        <tr>
+          <th>Movie Name</th>
+          <th>IMBD Rating</th>
+          <th>Trailer</th>
+          <th>Book It</th>
+        </tr>
+      </thead>
     <tbody>
-      <tr>
-        <td>10-Jul</td>
-        <td>Mumbai</td>
-        <td>India Gate</td>
-        <td>Click for Trailer <Button variant='warning'>&#127925;</Button></td>
-        <td><Button variant='info'>Book the ticket</Button></td>
-      </tr>
-      <tr>
-        <td>15-Jul</td>
-        <td>Pune</td>
-        <td>City Hall</td>
-        <td>Click for Trailer <Button variant='warning'>&#127925;</Button></td>
-        <td><Button variant='info'>Book the ticket</Button></td>
-      </tr>
-      <tr>
-        <td>18-Jul</td>
-        <td>Rajasthan</td>
-        <td>Patrika Gate</td>
-        <td> Click for Trailer <Button variant='warning'>&#127925;</Button> </td>
-        <td><Button variant='info'>Book the ticket</Button></td>
-      </tr>
+      {movieData.map( (val) => {
+        return <tr>
+          <td>{val.movie}</td>
+          <td>{val.rating}</td>
+          <td>
+          
+          <Button variant='warning'> 
+          <a href={val.imdb_url} target="_blank" style={{textDecoration:"none", color:"inherit"}}>Play Trailer</a></Button>
+          </td>
+          <td><Button variant='info' >Book ticket</Button></td>
+        </tr>
+      })}
     </tbody>
   </Table>
   )
