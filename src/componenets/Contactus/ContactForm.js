@@ -6,6 +6,12 @@ const ContactForm = () => {
   return (
     <div style={{width:"80%" ,margin:" 0px auto"}}>
     <Form className='mt-5'>
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Name</Form.Label>
+        <Form.Control type="text" placeholder="Enter full name" />
+      
+      </Form.Group>
+
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
