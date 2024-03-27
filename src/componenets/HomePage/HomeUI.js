@@ -37,7 +37,7 @@ const HomeUI = () => {
           <td>
           
           <Button variant='warning'> 
-          <a href={val.imdb_url} target="_blank" style={{textDecoration:"none", color:"inherit"}}>Play Trailer</a></Button>
+          <a href={val.imdb_url} target='_blank' style={{textDecoration:"none", color:"inherit"}}>Play Trailer</a></Button>
           </td>
           <td><Button variant='info' >Book ticket</Button></td>
         </tr>
