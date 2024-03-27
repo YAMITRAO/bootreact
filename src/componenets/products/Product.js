@@ -4,6 +4,7 @@ import {  Container, Row, Col } from 'react-bootstrap'
 import ProductCard from './ProductCard'
 import DataContext from '../context/DataContext'
 
+
 const Product = () => {
     const ctx = useContext(DataContext);
     const productsArr = ctx.productsList;
@@ -16,7 +17,10 @@ const Product = () => {
 
         <Row className='mt-2'>
             {productsArr.map( (val) => {
-                return <Col className='mt-2' key={val.title}><ProductCard data={val}/></Col>
+                return <Col className='mt-2' key={val.title}>
+                    
+                    <ProductCard data={val}/>
+                    </Col>
                 
             })}
             

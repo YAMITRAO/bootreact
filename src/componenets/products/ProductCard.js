@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Card,Button, CardText } from 'react-bootstrap'
 import DataContext from '../context/DataContext'
+import { Link } from 'react-router-dom'
 
 
 const ProductCard = (props) => {
@@ -18,7 +19,9 @@ const ProductCard = (props) => {
   return (
   
         <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={props.data.imageUrl}  />
+          <Link to={`/products/${props.data.title}`}>
+          <Card.Img variant="top" src={props.data.imageUrl}  />
+          </Link>
       <Card.Body>
         <Card.Title>{props.data.title}</Card.Title>
         <Card.Text>Price :  

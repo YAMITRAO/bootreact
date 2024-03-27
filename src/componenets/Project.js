@@ -7,6 +7,7 @@ import Cart from "./Cart/Cart"
 import DataContext from './context/DataContext'
 import NavBarCompo from './NavBar/NavBar'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import ProductDetails from './products/ProductDetails'
 
 const route = createBrowserRouter( [
   {
@@ -18,6 +19,7 @@ const route = createBrowserRouter( [
       {path: "/about" , element: <AboutUs />},
       {path: "/contact" , element: <ContactUs />},
       {path: "/cart" , element: <Cart/>  },
+      {path: "/products/:productID", element : <ProductDetails />}
     ]
   },
  
