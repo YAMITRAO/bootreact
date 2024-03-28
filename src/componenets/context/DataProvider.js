@@ -7,6 +7,14 @@ import DataContext from './DataContext'
 const reducer = (state, action) => {
 
   //Page Visibility "START"
+  if(action.type === "LOG_IN"){
+    console.log(action.data);
+    state.authToken = action.data
+    state.isAuth = true;
+    return {
+      ...state
+    }
+  }
   
   if(action.type === "CART"){
     let updatedData = {...state.pageVisibility, isCartVisible:!state.pageVisibility.isCartVisible}
@@ -116,11 +124,17 @@ const DataProvider = (props) => {
     isContactUsVisible: false,
     isCartVisible: false,
     }
+    
+    const changeAuth = (data) => {
+      dispatchFun(data);
+    }
 
 
      const defaultState = {
         productsList: productsList,
-
+        isAuth: false,
+        authHandler: changeAuth,
+        authToken: "",
         pageVisibility : pageVisibilityData,
         pageVisibilityHandler: visibilityHandler,
 

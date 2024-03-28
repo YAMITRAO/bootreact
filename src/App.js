@@ -1,4 +1,5 @@
 
+
 import Project from "./componenets/Project"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
    <Project  />
+   
    </>
   );
 }
