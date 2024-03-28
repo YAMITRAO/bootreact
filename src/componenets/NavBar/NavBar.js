@@ -23,12 +23,12 @@ const NavBarCompo = () => {
             <Nav.Link> <Link to="/products" style={{textDecoration:"none", color:"inherit"}}> Products </Link></Nav.Link>
             <Nav.Link><Link to="/contact" style={{textDecoration:"none", color:"inherit"}}> Contact </Link></Nav.Link>
             <Nav.Link><Link to ="/about" style={{textDecoration:"none", color:"inherit"}}> About </Link></Nav.Link>
-            <Nav.Link><Link to ="/auth" style={{textDecoration:"none", color:"inherit"}}> Login </Link></Nav.Link>
+            {!ctx.isAuth && <Nav.Link><Link to ="/auth" style={{textDecoration:"none", color:"inherit"}}> Login </Link></Nav.Link>}
             </Nav></Col>
             <Col xs={12} sm={2}> 
-            <Button variant="warning" onClick={( ) => {
+            {ctx.isAuth && <Button variant="warning" onClick={( ) => {
               pageVisibilityUpdate("CART")
-            }}>  $ Cart: {totalCartItems} </Button>
+            }}>  $ Cart: {totalCartItems} </Button>}
             </Col>
           </Row>
           </Container>

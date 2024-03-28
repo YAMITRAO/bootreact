@@ -44,7 +44,7 @@ const Project = () => {
         {path: "/contact" , element: ctx.isAuth ? <ContactUs /> : <LoginPage />},
         {path: "/cart" , element: ctx.isAuth ? <Cart/> : <LoginPage /> },
         {path: "/products/:productID", element : ctx.isAuth ? <ProductDetails /> : <LoginPage />},
-        {path: '/auth', element: <LoginPage />}
+        {path: '/auth', element:  ctx.isAuth ? <Home /> : <LoginPage />}
       ]
     },
    

@@ -140,9 +140,9 @@ const DataProvider = (props) => {
 
         cartItemsList : [],
         cartListUpdate : cartUpdateHandler,
-
      }
 
+     
      const [state, dispatchFun] = useReducer( reducer, defaultState)
 
   return (
