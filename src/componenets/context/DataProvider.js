@@ -4,6 +4,33 @@
 import React, { useReducer } from 'react'
 import DataContext from './DataContext'
 
+const postApi = ( data) => {
+  let response =  fetch("https://crudcrud.com/api/b9998a6e0b7f4280b589a3ecb5d2ae70/products", {
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+  method: 'POST',
+  body: JSON.stringify({
+    ...data
+  }
+  
+  )
+       })
+       response.then( res => {
+        console.log(res);
+        res.json().then( data => console.log(data)); 
+       })
+}
+
+const getApi = () => {
+  let response =  fetch("https://crudcrud.com/api/b9998a6e0b7f4280b589a3ecb5d2ae70/products")
+  response.then( res => {
+    res.json().then( data => {
+      for( let key in data){
+        console.log( data[key]);
+      }
+    });
+  }) 
+}
+
 const reducer = (state, action) => {
 
   //Page Visibility "START"
@@ -43,7 +70,8 @@ const reducer = (state, action) => {
         state.cartItemsList.push(action.data);
       }
     }
-   
+    postApi(state.cartItemsList);
+    getApi();
     return {
       ...state
     }
