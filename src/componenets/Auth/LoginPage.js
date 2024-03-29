@@ -28,7 +28,7 @@ const LoginPage = () => {
                     return res.json().then( data => {
                       ctx.authHandler({
                         type:"LOG_IN",
-                        data:data.idToken
+                        data:data
                       });  
                     });
                 }
